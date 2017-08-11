@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  h1 Add Customer
+  if (errors != undefined)
+    ul
+      each error in errors
+        li= error.msg
+  form(method="POST", action="/users/add")
+    label First Name
+    br
+    input(type="text", name="first_name")
+    br
+    br
+    label Last Name
+    br
+    input(type="text", name="last_name")
+    br
+    br
+    label Email
+    br
+    input(type="email", name="email")
+    br
+    br
+    input(type="submit")
+  ul
+    each user in users
+      li
+        = user.first_name
+        a(href='/') Delete
